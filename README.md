@@ -1,3 +1,19 @@
+# Additional
+## To use ImageBind with torch > 2.0
+Modify pytorchvideo library code is required.
+`{path_to_python_lib}/site-packages/pytorchaudio/transforms/augmentations.py`
+```
+# Line 9
+# (before) import torchvision.transforms.functional_tensor as F_t
+# (after)
+try:
+    import torchvision.transforms.functional_tensor as F_t
+except ImportError:
+    import torchvision.transforms.functional as F_t
+```
+
+
+
 # ImageBind: One Embedding Space To Bind Them All
 
 **[FAIR, Meta AI](https://ai.facebook.com/research/)** 
